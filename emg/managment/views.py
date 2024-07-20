@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework import viewsets, permissions
+from .models import WardAdmissionDischarge
+from .serializers import WardAdmissionDischargeSerializer
 
-# Create your views here.
+class WardAdmissionDischargeViewSet(viewsets.ModelViewSet):
+    queryset = WardAdmissionDischarge.objects.all()
+    serializer_class = WardAdmissionDischargeSerializer
+    permission_classes = [permissions.IsAuthenticated]
